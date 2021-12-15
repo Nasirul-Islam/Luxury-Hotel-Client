@@ -12,10 +12,10 @@ const Review = () => {
         autoplaySpeed: 2000,
         pauseOnHover: true
     };
-    const textColor = {
-        color: 'white',
-        fontWeight: 700
-    }
+    // const textColor = {
+    //     color: 'white',
+    //     fontWeight: 700
+    // }
     return (
         <div>
             <Container>

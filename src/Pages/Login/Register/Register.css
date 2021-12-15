@@ -1,0 +1,13 @@
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    border: 1px solid gray;
+    box-shadow: 10px 10px 10px gray;
+}
+.register input{
+    padding: 15px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+    margin: 15px auto;
+}

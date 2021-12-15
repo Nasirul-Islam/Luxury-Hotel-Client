@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import './Navigation.css';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -22,7 +23,7 @@ const Navigation = () => {
         setAnchorElNav(null);
     };
     const bgColor = {
-        backgroundColor: '#1976d214'
+        backgroundColor: 'rgb(0 0 0 / 35%)'
     }
     return (
         <AppBar position="absolute" className="navMain" style={bgColor}>
@@ -96,10 +97,10 @@ const Navigation = () => {
                         LUXURY HOTEL
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        <Typography textAlign="center"
+                        <Link to="/home"> <Typography textAlign="center"
                             sx={{ mx: 2, color: 'white' }}>
                             Home
-                        </Typography>
+                        </Typography></Link>
                         <Typography textAlign="center"
                             sx={{ mx: 2, color: 'white' }}>
                             Rooms
@@ -114,11 +115,18 @@ const Navigation = () => {
                         </Typography>
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                        <Button
+                        <Link to="/login">
+                            <Button
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                LogIn
+                            </Button>
+                        </Link>
+                        {/* <Button
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
-                            LogIn
-                        </Button>
+                            LogOut
+                        </Button> */}
                     </Box>
                 </Toolbar>
             </Container>
