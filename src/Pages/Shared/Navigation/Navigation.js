@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import './Navigation.css';
 
 const Navigation = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -20,10 +21,12 @@ const Navigation = () => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
-
+    const bgColor = {
+        backgroundColor: '#1976d214'
+    }
     return (
-        <AppBar position="static" >
-            {/* color="inherit" */}
+        <AppBar position="absolute" className="navMain" style={bgColor}>
+            {/* color="inherit" static */}
             <Container>
                 <Toolbar disableGutters>
                     <Typography

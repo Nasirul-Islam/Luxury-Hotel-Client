@@ -18,19 +18,19 @@ const SocialIcon = () => {
                         <Typography variant="h2" gutterBottom component="div" sx={{ fontWeight: 600 }}>SOCIALS</Typography>
                     </Grid>
                     <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-                        <a href="facebook.com" style={{ marginLeft: '15px' }}>
+                        <a href="https://www.facebook.com/" target={'_blank'} rel="noreferrer" style={{ marginLeft: '15px' }}>
                             <img width={'50px'} height={'50px'}
                                 src={facebook} alt="fb" />
                         </a>
-                        <a href="twitter.com" style={{ marginLeft: '15px' }}>
+                        <a href="https://www.twitter.com" target={'_blank'} rel="noreferrer" style={{ marginLeft: '15px' }}>
                             <img width={'50px'} height={'50px'}
                                 src={twitter} alt="twitter" />
                         </a>
-                        <a href="instagram.com" style={{ marginLeft: '15px' }}>
+                        <a href="https://www.instagram.com" target={'_blank'} rel="noreferrer" style={{ marginLeft: '15px' }}>
                             <img width={'50px'} height={'50px'}
                                 src={instagram} alt="instagram" />
                         </a>
-                        <a href="youtube.com" style={{ marginLeft: '15px' }}>
+                        <a href="https://www.youtube.com" target={'_blank'} rel="noreferrer" style={{ marginLeft: '15px' }}>
                             <img width={'50px'} height={'50px'}
                                 src={youtube} alt="youtube" />
                         </a>
