@@ -1,14 +1,20 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../../hooks/useFirebase';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './Register.css';
 
 const Register = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { emailLogin } = useFirebase();
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        emailLogin(data.email, data.password, data.displayName);
+        console.log(data);
+        reset();
+    };
     return (
         <>
             <Navigation />
@@ -19,7 +25,7 @@ const Register = () => {
                     </Typography>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input placeholder='Name' type="text"
-                            {...register("DisplayName", { required: true })} />
+                            {...register("displayName", { required: true })} />
                         <br />
                         <input placeholder='Email' type="email"
                             {...register("email", { required: true })} />
@@ -28,7 +34,7 @@ const Register = () => {
                             {...register("password", { required: true })} />
                         <br />
                         <input placeholder='Address' type="text"
-                            {...register("address", { required: true })} />
+                            {...register("address")} />
                         <br />
                         <input placeholder='Phone Number' type="number"
                             {...register("phone")} />

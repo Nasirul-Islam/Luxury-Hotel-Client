@@ -1,13 +1,21 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../../hooks/useFirebase';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { user, googleLogin, signInWithEmail } = useFirebase();
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        signInWithEmail(data.email, data.password);
+        console.log(data);
+        reset();
+    };
+    console.log(user);
+    console.log(user.email);
     return (
         <>
             <Navigation />
@@ -31,8 +39,8 @@ const Login = () => {
                         New User? Please Register
                     </Link>
                 </Box>
-                <Box>
-
+                <Box sx={{ my: 4 }}>
+                    <Button onClick={googleLogin} variant="outlined" sx={{ py: 1 }} style={{ color: 'green', fontSize: '20px', fontWeight: 700, border: '1px solid green', width: '50%' }}>Login With Google</Button>
                 </Box>
             </Container>
             <Footer />

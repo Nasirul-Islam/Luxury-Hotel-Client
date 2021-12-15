@@ -11,8 +11,11 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
+    const { user, logout } = useAuth();
+    console.log(user);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -97,7 +100,7 @@ const Navigation = () => {
                         LUXURY HOTEL
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        <Link to="/home"> <Typography textAlign="center"
+                        <Link to="/home"><Typography textAlign="center"
                             sx={{ mx: 2, color: 'white' }}>
                             Home
                         </Typography></Link>
@@ -113,20 +116,24 @@ const Navigation = () => {
                             sx={{ mx: 2, color: 'white' }}>
                             Contact
                         </Typography>
+                        {user?.email && <Link to="/dashboard"><Typography textAlign="center"
+                            sx={{ mx: 2, color: 'white' }}>
+                            Dashboard
+                        </Typography></Link>}
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                        <Link to="/login">
+                        {!user.email ? <Link to="/login">
                             <Button
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 LogIn
                             </Button>
-                        </Link>
-                        {/* <Button
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            LogOut
-                        </Button> */}
+                        </Link> :
+                            <Button onClick={logout}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                LogOut
+                            </Button>}
                     </Box>
                 </Toolbar>
             </Container>

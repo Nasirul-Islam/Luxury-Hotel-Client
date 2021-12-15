@@ -7,6 +7,7 @@ form {
 }
 .register input{
     padding: 15px;
+    border-right: 1px solid gray;
     border-bottom: 1px solid gray;
     width: 80%;
     margin: 15px auto;
