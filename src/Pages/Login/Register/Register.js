@@ -47,9 +47,6 @@ const Register = () => {
                         Already Register? Please Login
                     </Link>
                 </Box>
-                <Box>
-
-                </Box>
             </Container>
             <Footer />
         </>
