@@ -9,7 +9,7 @@ const Services = () => {
     return (
         <Box style={{ backgroundColor: '#e6e6e6' }} sx={{ pb: 8 }}>
             <Container>
-                <Grid container spacing={3} sx={{ display: 'flex', alignItems: 'center' }}>
+                <Grid container spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h2" gutterBottom component="div" sx={{ fontWeight: 700, my: 8, textAlign: 'left' }}>
                             OUR ROOMS <br /> AND SUITES
@@ -22,7 +22,7 @@ const Services = () => {
                         </Button>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
+                <Grid container spacing={3}>
                     {
                         rooms?.slice(0, 4).map(room => <Service
                             key={room?._id}

@@ -12,7 +12,7 @@ const Service = ({ room }) => {
     return (
         <Grid item xs={12} md={6}>
             <Link to={`/details/${_id}`}>
-                <Card style={{ boxShadow: '10px 10px 10px gray' }}>
+                <Card style={{ boxShadow: '-10px -12px 15px gray' }}>
                     <CardMedia
                         component="img"
                         alt="room"
@@ -38,8 +38,6 @@ const Service = ({ room }) => {
                             </Typography>
                         </Box>
                     </CardContent>
-                    {/* <CardActions>
-                </CardActions> */}
                 </Card>
             </Link>
         </Grid>
