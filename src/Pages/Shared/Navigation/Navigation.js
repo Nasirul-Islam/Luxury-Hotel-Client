@@ -100,14 +100,18 @@ const Navigation = () => {
                         LUXURY HOTEL
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        <Link to="/home"><Typography textAlign="center"
-                            sx={{ mx: 2, color: 'white' }}>
-                            Home
-                        </Typography></Link>
-                        <Typography textAlign="center"
-                            sx={{ mx: 2, color: 'white' }}>
-                            Rooms
-                        </Typography>
+                        <Link to="/home">
+                            <Typography textAlign="center"
+                                sx={{ mx: 2, color: 'white' }}>
+                                Home
+                            </Typography>
+                        </Link>
+                        <Link to="/allServices">
+                            <Typography textAlign="center"
+                                sx={{ mx: 2, color: 'white' }}>
+                                Rooms
+                            </Typography>
+                        </Link>
                         <Typography textAlign="center"
                             sx={{ mx: 2, color: 'white' }}>
                             About Us

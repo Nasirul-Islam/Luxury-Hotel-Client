@@ -12,6 +12,7 @@ import AddServices from './Pages/Dashboard/AddServices/AddServices';
 import Bookings from './Pages/Dashboard/Bookings/Bookings';
 import Booked from './Pages/Dashboard/Booked/Booked';
 import Details from './Pages/Details/Details';
+import AllServices from './Pages/Home/Services/AllServices';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/allServices" element={<AllServices />} />
             <Route path="/details/:id" element={<Details />} />
             <Route path="/dashboard" element={<Dashboard />} >
               <Route path="/dashboard" element={<Booked />} />

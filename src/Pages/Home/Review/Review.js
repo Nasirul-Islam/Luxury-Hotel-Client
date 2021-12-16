@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
 import { Box, Container, Typography } from '@mui/material';
+import SingleReview from './SingleReview';
 
 const Review = () => {
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/review')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, []);
     var settings = {
         dots: true,
         infinite: true,
@@ -12,34 +19,21 @@ const Review = () => {
         autoplaySpeed: 2000,
         pauseOnHover: true
     };
-    // const textColor = {
-    //     color: 'white',
-    //     fontWeight: 700
-    // }
     return (
-        <div>
+        <Box style={{ backgroundColor: '#e6e6e6' }} sx={{ pb: 8 }}>
             <Container>
                 <Box>
-                    <Typography variant="h2" gutterBottom component="div" sx={{ fontWeight: 700 }}>
-                        REVIEWS
+                    <Typography variant="h2" gutterBottom component="div" sx={{ fontWeight: 700, mb: 5 }}>
+                        VISITOR <span style={{ color: '#a6a3a3' }}>EXPERIENCE</span>
                     </Typography>
                 </Box>
                 <Slider {...settings}>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
+                    {reviews?.map(review => <SingleReview
+                        key={review._id}
+                        review={review} />)}
                 </Slider>
             </Container>
-        </div>
+        </Box>
     );
 };
 

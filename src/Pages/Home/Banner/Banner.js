@@ -1,5 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Banner.css';
 
 const Banner = () => {
@@ -22,10 +23,10 @@ const Banner = () => {
                                 YOURSELF <br />
                                 AT HOME
                             </Typography>
-                            <Button variant="outlined"
+                            <Link to="/allServices"><Button variant="outlined"
                                 style={{ fontSize: '1.5rem', color: 'white' }} sx={{ px: 4, py: 2 }}>
                                 VIEW OUR ROOMS
-                            </Button>
+                            </Button></Link>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={7}></Grid>
