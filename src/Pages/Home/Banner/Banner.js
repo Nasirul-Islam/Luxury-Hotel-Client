@@ -24,7 +24,7 @@ const Banner = () => {
                             </Typography>
                             <Button variant="outlined"
                                 style={{ fontSize: '1.5rem', color: 'white' }} sx={{ px: 4, py: 2 }}>
-                                VIEW OUR ROOM
+                                VIEW OUR ROOMS
                             </Button>
                         </Box>
                     </Grid>
