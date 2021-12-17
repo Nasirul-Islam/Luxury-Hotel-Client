@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 const Bookings = () => {
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/booking')
+        fetch('https://blooming-cliffs-04008.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])

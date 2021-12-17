@@ -17,7 +17,7 @@ const Details = () => {
         data.roomid = id;
         data.status = 'pending';
         console.log(data);
-        fetch('http://localhost:5000/booking', {
+        fetch('https://blooming-cliffs-04008.herokuapp.com/booking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

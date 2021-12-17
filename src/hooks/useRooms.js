@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useRooms = () => {
     const [rooms, setRooms] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/rooms')
+        fetch('https://blooming-cliffs-04008.herokuapp.com/rooms')
             .then(res => res.json())
             .then(data => setRooms(data))
     }, []);

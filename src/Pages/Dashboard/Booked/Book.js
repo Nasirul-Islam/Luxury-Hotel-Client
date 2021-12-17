@@ -1,5 +1,5 @@
 import { Box, Button, Grid } from '@mui/material';
-import React, { useEffect } from 'react';
+import React from 'react';
 import useRooms from '../../../hooks/useRooms';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -13,7 +13,7 @@ const Book = ({ book }) => {
     const room = rooms?.filter(room => room._id === roomid);
     // console.log(room);
     const handleCancel = id => {
-        fetch(`http://localhost:5000/booking/${id}`, {
+        fetch(`https://blooming-cliffs-04008.herokuapp.com/booking/${id}`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
         })

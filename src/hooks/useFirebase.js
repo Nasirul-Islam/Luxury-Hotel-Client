@@ -83,7 +83,7 @@ const useFirebase = () => {
     }, [auth]);
     // load admin
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`)
+        fetch(`https://blooming-cliffs-04008.herokuapp.com/user/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user?.email]);
@@ -99,7 +99,7 @@ const useFirebase = () => {
     }
     // save user to database
     const saveusertodb = (user, method) => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://blooming-cliffs-04008.herokuapp.com/user', {
             method: method,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
