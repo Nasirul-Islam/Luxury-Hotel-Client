@@ -17,7 +17,7 @@ import './Dashboard.css';
 const drawerWidth = 240;
 
 function Dashboard(props) {
-    const { user, logout } = useAuth();
+    const { user, logout, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -38,14 +38,18 @@ function Dashboard(props) {
                 <Link to="dashboard/addReview" className='sideNav'>
                     Review</Link>
                 <Divider />
-                <Link to="dashboard/addServices" className='sideNav'>
+                <Link to="dashboard/payment" className='sideNav'>
+                    Payment</Link>
+                <Divider />
+                {admin && <><Link to="dashboard/addServices" className='sideNav'>
                     Add Room</Link>
-                <Divider />
-                <Link to="dashboard/bookings" className='sideNav'>
-                    Bookings</Link>
-                <Divider />
-                <Link to="dashboard/makeAdmin" className='sideNav'>
-                    Make Admin</Link>
+                    <Divider />
+                    <Link to="dashboard/bookings" className='sideNav'>
+                        Bookings</Link>
+                    <Divider />
+                    <Link to="dashboard/makeAdmin" className='sideNav'>
+                        Make Admin</Link>
+                </>}
                 <Divider />
                 <Button onClick={logout}
                     variant="contained"

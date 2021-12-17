@@ -16,6 +16,7 @@ import AllServices from './Pages/Home/Services/AllServices';
 import PrivateRoute from './Pages/Router/PrivateRoute/PrivateRoute';
 import AdminRoute from './Pages/Router/AdminRoute/AdminRoute';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import Payment from './Pages/Dashboard/Payment/Payment';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/dashboard" element={<Booked />} />
               <Route path="dashboard/booked" element={<Booked />} />
               <Route path="dashboard/addReview" element={<AddReview />} />
+              <Route path="dashboard/payment" element={<Payment />} />
               {/* admin route */}
               <Route path="dashboard/addServices" element={
                 <AdminRoute><AddServices /></AdminRoute>} />

@@ -7,7 +7,6 @@ import { Box, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Service = ({ room }) => {
-    console.log(room);
     const { sizeResidents, img, price, title, _id } = room;
     return (
         <Grid item xs={12} md={6}>

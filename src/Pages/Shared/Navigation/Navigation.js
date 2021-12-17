@@ -15,7 +15,6 @@ import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
     const { user, logout } = useAuth();
-    console.log(user);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
