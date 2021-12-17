@@ -42,7 +42,7 @@ const AddServices = () => {
                         <input placeholder='Price' type="number"
                             {...register("price", { required: true })} />
                         <br />
-                        <input style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
+                        <input className='submitbtn' style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
                             value="Add Room" />
                     </form>
                 </Box>

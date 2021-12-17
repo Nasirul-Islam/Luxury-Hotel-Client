@@ -39,7 +39,7 @@ const Register = () => {
                         <input placeholder='Phone Number' type="number"
                             {...register("phone")} />
                         <br />
-                        <input style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
+                        <input className='submitbtn' style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
                             value="Register" />
                     </form>
                     <br />

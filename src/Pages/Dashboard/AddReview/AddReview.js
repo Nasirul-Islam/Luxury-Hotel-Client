@@ -40,7 +40,7 @@ const AddReview = () => {
                         <input placeholder='Rating' type="number"
                             {...register("rating", { min: 0, max: 5, required: true })} />
                         <br />
-                        <input style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
+                        <input className='submitbtn' style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
                             value="Give Review" />
                     </form>
                 </Box>

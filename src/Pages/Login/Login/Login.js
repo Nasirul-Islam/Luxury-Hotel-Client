@@ -31,7 +31,7 @@ const Login = () => {
                         <input placeholder='Password' type="password"
                             {...register("password", { required: true })} />
                         <br />
-                        <input style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
+                        <input className='submitbtn' style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
                             value="Login" />
                     </form>
                     <br />
