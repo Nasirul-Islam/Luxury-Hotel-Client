@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import { Box, Button } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -11,10 +11,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import './Dashboard.css';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
+    const { user, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -24,18 +27,29 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            <Toolbar sx={{ bgcolor: '#e0e0e0' }} />
             <Divider />
-            <List>
-                <Link to="/home">Home</Link>
-                <br />
-                <Link to="dashboard/booked">Booked</Link>
-                <br />
-                <Link to="dashboard/addReview">Add Review</Link>
-                <br />
-                <Link to="dashboard/addServices">Add Room</Link>
-                <br />
-                <Link to="dashboard/bookings">Bookings</Link>
+            <List sx={{ bgcolor: '#e0e0e0' }}>
+                <Link to="/home" className='sideNav'>Home</Link>
+                <Divider />
+                <Link to="dashboard/booked" className='sideNav'>
+                    Booked</Link>
+                <Divider />
+                <Link to="dashboard/addReview" className='sideNav'>
+                    Review</Link>
+                <Divider />
+                <Link to="dashboard/addServices" className='sideNav'>
+                    Add Room</Link>
+                <Divider />
+                <Link to="dashboard/bookings" className='sideNav'>
+                    Bookings</Link>
+                <Divider />
+                <Button onClick={logout}
+                    variant="contained"
+                    sx={{ bgcolor: "lightgray", color: 'black', fontWeight: 700, my: 4, px: 5, py: 1, fontSize: 16 }}
+                >
+                    LogOut
+                </Button>
             </List>
         </div>
     );
@@ -52,7 +66,7 @@ function Dashboard(props) {
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', bgcolor: '#e0e0e0', color: '#000' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -63,7 +77,10 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        LUXURY HOTEL
+                    </Typography>
+                    <Typography variant="body1" noWrap component="div">
+                        {user?.displayName}
                     </Typography>
                 </Toolbar>
             </AppBar>

@@ -72,14 +72,18 @@ const Navigation = () => {
                         >
                             <MenuItem onClick={handleCloseNavMenu}
                                 sx={{ display: 'flex', flexDirection: 'column' }}>
-                                <Typography textAlign="center"
-                                    sx={{ my: 2 }}>
-                                    Home
-                                </Typography>
-                                <Typography textAlign="center"
-                                    sx={{ my: 2 }}>
-                                    Rooms
-                                </Typography>
+                                <Link to="/home">
+                                    <Typography textAlign="center"
+                                        sx={{ mx: 2 }}>
+                                        Home
+                                    </Typography>
+                                </Link>
+                                <Link to="/allServices">
+                                    <Typography textAlign="center"
+                                        sx={{ mx: 2 }}>
+                                        Rooms
+                                    </Typography>
+                                </Link>
                                 <Typography textAlign="center"
                                     sx={{ my: 2 }}>
                                     About Us
@@ -88,6 +92,10 @@ const Navigation = () => {
                                     sx={{ my: 2 }}>
                                     Contact
                                 </Typography>
+                                {user?.email && <Link to="/dashboard"><Typography textAlign="center"
+                                    sx={{ mx: 2, color: 'white' }}>
+                                    Dashboard
+                                </Typography></Link>}
                             </MenuItem>
                         </Menu>
                     </Box>
@@ -132,7 +140,8 @@ const Navigation = () => {
                             >
                                 LogIn
                             </Button>
-                        </Link> :
+                        </Link>
+                            :
                             <Button onClick={logout}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
