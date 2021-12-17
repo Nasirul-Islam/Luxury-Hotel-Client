@@ -1,13 +1,14 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import React from 'react';
 import useRooms from '../../../hooks/useRooms';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import CardActions from '@mui/material/CardActions';
 
 const Book = ({ book }) => {
-    const { roomid } = book;
+    const { roomid, status } = book;
     const { rooms } = useRooms();
     const room = rooms?.filter(room => room._id === roomid);
     console.log(room);
@@ -42,6 +43,12 @@ const Book = ({ book }) => {
                                     </Typography>
                                 </Box>
                             </CardContent>
+                            <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <Typography variant="body1" color="warning.main" sx={{ fontWeight: 700, pl: 2 }}>
+                                    {status}
+                                </Typography>
+                                <Button variant="outlined" color="error" size="small">Cancle</Button>
+                            </CardActions>
                         </Card>
                     </Grid>)
             }

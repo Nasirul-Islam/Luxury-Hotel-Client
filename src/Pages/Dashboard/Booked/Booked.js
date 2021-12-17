@@ -20,7 +20,7 @@ const Booked = () => {
                         MY <span style={{ color: '#a6a3a3' }}>BOOKINGS</span>
                     </Typography>
                 </Box>
-                <Grid container spacing={2}>
+                <Grid container spacing={3}>
                     {
                         booked.map(book => <Book
                             key={book?._id}
