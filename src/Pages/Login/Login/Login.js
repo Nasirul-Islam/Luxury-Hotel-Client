@@ -8,17 +8,14 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
-    const { user, googleLogin, signInWithEmail } = useAuth();
+    const { googleLogin, signInWithEmail } = useAuth();
     const location = useLocation();
     let navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         signInWithEmail(data.email, data.password, location, navigate);
-        console.log(data);
         reset();
     };
-    console.log(user);
-    console.log(user.email);
     return (
         <>
             <Navigation />

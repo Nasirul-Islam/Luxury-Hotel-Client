@@ -15,6 +15,7 @@ import Details from './Pages/Details/Details';
 import AllServices from './Pages/Home/Services/AllServices';
 import PrivateRoute from './Pages/Router/PrivateRoute/PrivateRoute';
 import AdminRoute from './Pages/Router/AdminRoute/AdminRoute';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
                 <AdminRoute><AddServices /></AdminRoute>} />
               <Route path="dashboard/bookings" element={
                 <AdminRoute><Bookings /></AdminRoute>} />
+              <Route path="dashboard/makeAdmin" element={
+                <AdminRoute><MakeAdmin /></AdminRoute>} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -44,6 +44,9 @@ function Dashboard(props) {
                 <Link to="dashboard/bookings" className='sideNav'>
                     Bookings</Link>
                 <Divider />
+                <Link to="dashboard/makeAdmin" className='sideNav'>
+                    Make Admin</Link>
+                <Divider />
                 <Button onClick={logout}
                     variant="contained"
                     sx={{ bgcolor: "lightgray", color: 'black', fontWeight: 700, my: 4, px: 5, py: 1, fontSize: 16 }}

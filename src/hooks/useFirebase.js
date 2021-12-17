@@ -10,6 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
     const [isloding, setIsloding] = useState(true);
+    const [admin, setAdmin] = useState(false);
     const auth = getAuth();
     // create User With Email And Password 
     const emailLogin = (email, password, displayName, location, navigate) => {
@@ -18,6 +19,8 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const newUser = { email, displayName }
                 setUser(newUser);
+                // save user to db
+                saveusertodb(newUser, 'POST');
                 // update profile
                 updateProfile(auth.currentUser, {
                     displayName: displayName
@@ -53,9 +56,13 @@ const useFirebase = () => {
         setIsloding(true);
         signInWithPopup(auth, googleprovider)
             .then((result) => {
+                const user = result.user
+                setUser(user);
+                // save user to db
+                saveusertodb(user, 'PUT');
+                // redirect
                 const destination = location?.state?.from || '/';
                 navigate(destination);
-                setUser(result.user);
                 setErrorMessage('');
             }).catch((error) => {
                 setErrorMessage(error.message);
@@ -73,7 +80,13 @@ const useFirebase = () => {
             setIsloding(false)
         });
         return () => unsubscribe;
-    }, [auth])
+    }, [auth]);
+    // load admin
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user?.email]);
     // logOut 
     const logout = () => {
         setIsloding(true);
@@ -84,10 +97,21 @@ const useFirebase = () => {
         })
             .finally(() => setIsloding(false));
     }
+    // save user to database
+    const saveusertodb = (user, method) => {
+        fetch('http://localhost:5000/user', {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
     return {
         user,
         errorMessage,
         isloding,
+        admin,
         googleLogin,
         emailLogin,
         signInWithEmail,
