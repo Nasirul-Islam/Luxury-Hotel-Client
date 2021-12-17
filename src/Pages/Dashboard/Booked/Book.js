@@ -47,7 +47,7 @@ const Book = ({ book }) => {
                                 <Typography variant="body1" color="warning.main" sx={{ fontWeight: 700, pl: 2 }}>
                                     {status}
                                 </Typography>
-                                <Button variant="outlined" color="error" size="small">Cancle</Button>
+                                <Button variant="outlined" color="error" size="small">Cancel</Button>
                             </CardActions>
                         </Card>
                     </Grid>)

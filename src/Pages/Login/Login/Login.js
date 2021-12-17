@@ -2,15 +2,18 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../hooks/useFirebase';
+import useAuth from '../../../hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
-    const { user, googleLogin, signInWithEmail } = useFirebase();
+    const { user, googleLogin, signInWithEmail } = useAuth();
+    const location = useLocation();
+    let navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        signInWithEmail(data.email, data.password);
+        signInWithEmail(data.email, data.password, location, navigate);
         console.log(data);
         reset();
     };
@@ -31,8 +34,7 @@ const Login = () => {
                         <input placeholder='Password' type="password"
                             {...register("password", { required: true })} />
                         <br />
-                        <input className='submitbtn' style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit"
-                            value="Login" />
+                        <input className='submitbtn' style={{ color: '#000', fontSize: '20px', fontWeight: 700 }} type="submit" value="Login" />
                     </form>
                     <br />
                     <Link to="/register" style={{ color: 'red', fontSize: '20px', fontWeight: 700 }}>
@@ -40,7 +42,7 @@ const Login = () => {
                     </Link>
                 </Box>
                 <Box sx={{ my: 4 }}>
-                    <Button onClick={googleLogin} variant="outlined" sx={{ py: 1 }} style={{ color: 'green', fontSize: '20px', fontWeight: 700, border: '1px solid green', width: '50%' }}>Login With Google</Button>
+                    <Button onClick={() => googleLogin(location, navigate)} variant="outlined" sx={{ py: 1 }} style={{ color: 'green', fontSize: '20px', fontWeight: 700, border: '1px solid green', width: '50%' }}>Login With Google</Button>
                 </Box>
             </Container>
             <Footer />

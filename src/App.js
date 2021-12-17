@@ -13,6 +13,8 @@ import Bookings from './Pages/Dashboard/Bookings/Bookings';
 import Booked from './Pages/Dashboard/Booked/Booked';
 import Details from './Pages/Details/Details';
 import AllServices from './Pages/Home/Services/AllServices';
+import PrivateRoute from './Pages/Router/PrivateRoute/PrivateRoute';
+import AdminRoute from './Pages/Router/AdminRoute/AdminRoute';
 
 function App() {
   return (
@@ -25,14 +27,20 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/allServices" element={<AllServices />} />
-            <Route path="/details/:id" element={<Details />} />
-            <Route path="/dashboard" element={<Dashboard />} >
+            <Route path="/details/:id" element={
+              <PrivateRoute><Details /></PrivateRoute>
+            } />
+            <Route path="/dashboard" element={
+              <PrivateRoute><Dashboard /></PrivateRoute>} >
+              {/* user route */}
               <Route path="/dashboard" element={<Booked />} />
               <Route path="dashboard/booked" element={<Booked />} />
               <Route path="dashboard/addReview" element={<AddReview />} />
               {/* admin route */}
-              <Route path="dashboard/addServices" element={<AddServices />} />
-              <Route path="dashboard/bookings" element={<Bookings />} />
+              <Route path="dashboard/addServices" element={
+                <AdminRoute><AddServices /></AdminRoute>} />
+              <Route path="dashboard/bookings" element={
+                <AdminRoute><Bookings /></AdminRoute>} />
             </Route>
           </Routes>
         </BrowserRouter>
